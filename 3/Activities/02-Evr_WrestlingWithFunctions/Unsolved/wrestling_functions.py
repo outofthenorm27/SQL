@@ -2,18 +2,28 @@ import os
 import csv
 
 # Path to collect data from the Resources folder
+wrestling_csv = os.path.join("..", "Resources", "WWE-Data-2016.csv")
 
 # Define the function and have it accept the 'wrestlerData' as its sole parameter
-
+def print_percentages(wrestler_data):
+    name = str(wrestler_data[0])
+    wins = int(wrestler_data[1])
+    losses = int(wrestler_data[2])
+    draws = int(wrestler_data[3])
 # Find the total number of matches wrestled
+    total_matches = wins + losses + draws
 
 # Find the percentage of matches won
+    win_percent = (wins/total_matches) * 100
 
 # Find the percentage of matches lost
+    loss_percent = (losses/total_matches) * 100
 
 # Find the percentage of matches drawn
+    draw_percent = (draws/total_matches) * 100
 
 # Print out the wrestler's name and their percentage stats
+    print("\n" + name + ": " + str(win_percent) + "% wins, " + str(loss_percent) + "% losses, " + str(draw_percent) + "% draws")
 
 # Read in the CSV file
 with open(wrestling_csv, 'r') as csvfile:
